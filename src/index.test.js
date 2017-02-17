@@ -9,11 +9,11 @@ describe('Our first test', () => {
 });
 
 describe('index.html', () => {
-  it('should say hello', (done) => { // Use this done callback when you perform async task inside the test
+  it('should have h1 with Users', (done) => { // Use this done callback when you perform async task inside the test
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     jsdom.env(index, (err, window) => {
       const h1 = window.document.getElementsByTagName('h1')[0];
-      expect(h1.innerHTML).to.equal('Hello World!');
+      expect(h1.innerHTML).to.equal('Users');
       done();
       window.close();
     });
